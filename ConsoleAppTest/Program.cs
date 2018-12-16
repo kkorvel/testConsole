@@ -8,11 +8,14 @@ namespace ConsoleAppTest
 {
     class Program
     {
+        static List<string> shopItemsList = new List<string>();
         static void Main(string[] args)
         {
             List<string> peoples = new List<string>();
+            
+           
 
-            //
+            
             Person person = new Person();
             Console.WriteLine("Tere, mis on su nimi?");
 
@@ -40,9 +43,19 @@ namespace ConsoleAppTest
             Program program = new Program();
 
             program.sayGreetings();
-            
-            
-            
+
+            addCart("Tomato", 20);
+            addCart("Cucumber", 25);
+            addCart("Pasta", 10);
+            addCart("Cheese", 50);
+
+            foreach (var shopItem in shopItemsList)
+            {
+                Console.WriteLine(shopItem);
+            }
+
+
+
         }
         //static kutsub niisama välja
         private static void sayHello()
@@ -56,6 +69,17 @@ namespace ConsoleAppTest
             Console.WriteLine("Greetings!");
         }
    
+        private static void addCart( string name, int itemPrice)
+        {
+           
+            ShopItems shopItems = new ShopItems();
+            shopItems.itemName = name;
+            shopItems.price = itemPrice;
+
+            shopItemsList.Add(shopItems.itemName);
+            shopItemsList.Add(shopItems.price.ToString());
+
+        }
             
         
         
