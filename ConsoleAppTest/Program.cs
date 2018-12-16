@@ -8,10 +8,10 @@ namespace ConsoleAppTest
 {
     class Program
     {
-        static List<string> shopItemsList = new List<string>();
+        static List<ShopItems> shopItemsList = new List<ShopItems>();
         static void Main(string[] args)
         {
-            List<string> peoples = new List<string>();
+            List<Person> peoples = new List<Person>();
             
            
 
@@ -28,15 +28,16 @@ namespace ConsoleAppTest
 
             Console.WriteLine("Meeldiv tutvuda, " + person.name + " sa oled " + person.age + " aastane!");
 
-
-            peoples.Add(person.name);
-            peoples.Add(person.age.ToString());
+            peoples.Add(person);
+            //peoples.Add(person.name);
+            //peoples.Add(person.age.ToString());
 
 
             Console.WriteLine("Peoples:");
-            foreach (string item in peoples)
+            foreach (Person item in peoples)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(string.Format("{0} {1}", item.name, item.age));
+
             }
             sayHello();
             //objekt
@@ -48,11 +49,14 @@ namespace ConsoleAppTest
             addCart("Cucumber", 25);
             addCart("Pasta", 10);
             addCart("Cheese", 50);
+            Console.WriteLine("Meil on pakkuda:");
 
-            foreach (var shopItem in shopItemsList)
+            foreach (ShopItems shopItem in shopItemsList)
             {
-                Console.WriteLine(shopItem);
+                Console.WriteLine(string.Format("Name:{0}, Price:{1} + euros", shopItem.itemName, shopItem.price));
             }
+            string ost = Console.ReadLine();
+            //if(ost == )
 
 
 
@@ -76,8 +80,10 @@ namespace ConsoleAppTest
             shopItems.itemName = name;
             shopItems.price = itemPrice;
 
-            shopItemsList.Add(shopItems.itemName);
-            shopItemsList.Add(shopItems.price.ToString());
+            shopItemsList.Add(shopItems);
+            //shopItemsList.Add(shopItems.itemName);
+            //shopItemsList.Add(shopItems.price.ToString());
+            
 
         }
             
