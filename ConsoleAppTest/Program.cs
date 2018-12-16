@@ -12,7 +12,7 @@ namespace ConsoleAppTest
         {
             List<string> peoples = new List<string>();
 
-            
+            //
             Person person = new Person();
             Console.WriteLine("Tere, mis on su nimi?");
 
@@ -25,7 +25,7 @@ namespace ConsoleAppTest
 
             Console.WriteLine("Meeldiv tutvuda, " + person.name + " sa oled " + person.age + " aastane!");
 
-           
+
             peoples.Add(person.name);
             peoples.Add(person.age.ToString());
 
@@ -35,8 +35,29 @@ namespace ConsoleAppTest
             {
                 Console.WriteLine(item);
             }
+            sayHello();
+            //objekt
+            Program program = new Program();
 
+            program.sayGreetings();
+            
+            
+            
         }
+        //static kutsub niisama välja
+        private static void sayHello()
+        {
+            Console.WriteLine("Tere!");
+        }
+
+        //nonstatic kutsuma välja objekti abil
+        private void sayGreetings()
+        {
+            Console.WriteLine("Greetings!");
+        }
+   
+            
+        
         
     }
 }
